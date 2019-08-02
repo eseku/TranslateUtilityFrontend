@@ -1,0 +1,29 @@
+{
+  "name": "jquery.preloader",
+  "version": "1.0.0",
+  "description": "A small jQuery plug-in is designed for display loading animation when some process is running",
+  "main": "preloader.html",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpchelnikov/jquery.preloader.git"
+  },
+  "keywords": [
+    "jquery",
+    "preloader"
+  ],
+  "author": "Maks Pchelnikov",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mpchelnikov/jquery.preloader/issues"
+  },
+  "homepage": "https://github.com/mpchelnikov/jquery.preloader#readme"
+}

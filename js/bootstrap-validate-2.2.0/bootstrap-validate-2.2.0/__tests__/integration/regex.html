@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      min-height: 24em;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <form>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="input">First name</label>
+        <input type="text" class="form-control" id="input" placeholder="First name" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="colon">Colon Symbol</label>
+        <input type="text" class="form-control" id="colon" placeholder="Test Colon Symbol" required>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </form>
+
+
+</div>
+
+
+<script src="../../dist/bootstrap-validate.js"></script>
+<script>
+  // Basic Example
+  bootstrapValidate('#input', 'regex:^[a-z]+$:Only enter alphabetical characters');
+  bootstrapValidate('#colon', 'regex:^(my:track:[a-zA-Z0-9]{22}$):Invalid');
+</script>
+</body>
+</html>

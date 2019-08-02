@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Utility - Search</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+
+
+
+</head>
+
+<body>
+    <div id="overlay" style="display: none;">
+        <div id="loader"></div>
+        <div id="text">
+            <h6>Caching translated strings...</h6>
+        </div>
+    </div>
+
+    <div class="main1">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light text-center" style="background-color: #f4f6fa">
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">
+                <h3 id="title">
+                    SEARCH UTILITY
+                </h3>
+
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active ">
+                        <a class="nav-link pill1" style="color: #000080" href="#">Search
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active ">
+                        <a class="nav-link pill1" style="color: #000080" href="add.html">Add
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-end">
+                    <p class="pt-4 mx-4">Search Options: </p>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="localSearchInlineRadio" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Local Search</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="APISearchInlineRadio" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">API Search</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Container to search data Locally -->
+        <div class="container" id="containerLocalStorage">
+            <div class="row my-3">
+                <div class="col mx-2 pt-3">
+                    <div class="input-group">
+                        <input type="search" placeholder="Search Locally" id="localStorageSearchInput" class="form-control" aria-label="Text input with segmented dropdown button">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-success" id="localStorageSearchButton">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-end">
+
+                </div>
+            </div>
+
+
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered responsive-table table-striped" id="localStorageSearchTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th scope="col">
+
+                                CODE
+
+                            </th>
+                            <th scope="col">
+                                ENGLISH
+                            </th>
+                            <th scope="col">
+                                DESCRIPTION
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table-hover">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-muted" colspan="3" style="text-align: center; background-color: #f4f6fa;">
+                                Local Data
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+
+
+        <!-- Container to search data from API -->
+        <div class="container" id="containerAPI" style="display: none">
+            <!-- Row with search bar -->
+            <div class="row my-3">
+                <div class="col mx-2 pt-3">
+                    <div class="input-group">
+                        <input type="search" placeholder="Search in API" id="searchInput" class="form-control" aria-label="Text input with segmented dropdown button">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-success" id="submitButton">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-end">
+
+                </div>
+            </div>
+
+
+            <!-- Table -->
+            <div class="table-responsive mb-5">
+                <table class="table table-bordered responsive-table table-striped" id="mainTable">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th scope="col">
+
+                                CODE
+
+                            </th>
+                            <th scope="col">
+                                ENGLISH
+                            </th>
+                            <th scope="col">
+                                DESCRIPTION
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table-hover">
+                    </tbody>
+                    <tfoot >
+                        <tr>
+                            <td style=" text-align:center; background-color:#f4f6fa; " class=" text-muted text-center" colspan=" 3 ">API Data</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+
+
+
+            <div class="text-center isolate" id="preloader" style="display: none;">
+                <div class="spinner-border spinner-border-md text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <nav class="navbar fixed-bottom" style="background-color: #f4f6fa;">
+            <div class="container">
+                <a class="navbar-brand" style="color: #000080;" href="#">© 2019 - Persol Systems</a>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="./js/utils/data.js"></script>
+    <script src="js/script1.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- d-flex justify-content-center -->
