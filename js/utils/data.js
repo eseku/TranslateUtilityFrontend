@@ -2,7 +2,7 @@ let button = '#submitButton';
 let field = '#searchInput';
 let table = '#mainTable tbody';
 //let path = 'http://localhost:3000/weather?address='
-let path = 'http://psl-app-vm3/AdminService/api/Menus/GetTranslatedStringByFilter?filter=';
+let path = ${API_URL};
 
 
 
